@@ -12,12 +12,12 @@
 /*Filter Definitions*/
 #define NUM_COEF 41
 #define DATA_SIZE 1024
-
+#define MAX_DATA 4*1024
 
 
 static float32_t FilterState[3][DATA_SIZE + NUM_COEF -1];
 arm_fir_instance_f32 F[3];
-
+static float32_t FilterOutput[MAX_DATA];
 /*Coefficients declarations*/
 const float32_t Filter_LP_coefficients[NUM_COEF]  =
 {
@@ -158,8 +158,12 @@ const float32_t Filter_HP_coefficients[NUM_COEF]  =
 
 };
 
+/*Filter Initialization Functions*/
 void LP_Filter();
 void BP_Filter();
 void HP_Filter();
-
+/*Filters Initialization and data buffer creation*/
+void Filter_Initialization(uint32_t *InputData);
+/*Processing of Data passed through the selected filter */
+void Filter_Process(uint8_t filter_type);
 #endif /* FILTER_H_ */
