@@ -16,3 +16,14 @@ Los filtros de diseñaron en Matlab con la funcion fir, para despues utilizar lo
 Se utilizo el protocolo I2C, para la configuracion del Codec.
 
 Se obtuvo informacion del documento de I2S, despues de la inicializacion del Codec no en modo bypass, recibir y mandar audio. Aunque no se pudo establecer la comunicacion.
+
+se implementaron 4 tareas:
+
+a) para inicializar el codec con i2c
+b) para inicializar la uart
+c) para inicializar los filtro
+d) para la obtencion del comando del usuario
+
+por implementar: 
+ tarea para la recepcion y filtrado del audio
+ tarea para la transmision del audio ya filtrado dependiendo de la seleccion del usuario
