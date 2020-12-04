@@ -77,6 +77,7 @@ void Init_codec(void *parameters)
 void Init_Filter(void *parameters)
 {
 	 Filter_Initialization();
+	 vTaskSuspend(NULL);
 }
 
 void Init_Uart(void *parametrers)
