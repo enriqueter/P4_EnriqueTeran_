@@ -14,3 +14,5 @@ Se utilizo la UART esto para recibir y mandar comandos, para utilizarlo como una
 
 Los filtros de diseñaron en Matlab con la funcion fir, para despues utilizar los valores dentro de unas constantes, esto para dar forma a los filtros deseados.
 Se utilizo el protocolo I2C, para la configuracion del Codec.
+
+Se obtuvo informacion del documento de I2S, despues de la inicializacion del Codec no en modo bypass, recibir y mandar audio. Aunque no se pudo establecer la comunicacion.
