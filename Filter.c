@@ -7,7 +7,13 @@
 
 
 #include "Filter.h"
-
+#include <stdio.h>
+#include "board.h"
+#include "peripherals.h"
+#include "pin_mux.h"
+#include "clock_config.h"
+#include "MK66F18.h"
+#include "fsl_debug_console.h"
 /*Global variables to manage buffers and filters*/
 float32_t *inputData, *outputData;
 arm_fir_instance_f32 F[3];
@@ -187,6 +193,7 @@ void Filter_Process(uint8_t filter_type)
 		{
 		/* LP_FILTER */
 		arm_fir_f32(&F[0], inputData + (4 * DATA_SIZE), outputData + (4 * DATA_SIZE), DATA_SIZE);
+		PRINTF("LP FILTER ");
 		}
 		break;
 	case 1:
@@ -198,6 +205,7 @@ void Filter_Process(uint8_t filter_type)
 		  {
 				/* HP_FILTER */
 				arm_fir_f32(&F[1], inputData + (4 * DATA_SIZE), outputData + (4 * DATA_SIZE), DATA_SIZE);
+				PRINTF("BP FILTER  ");
 		  }
 		break;
 	case 3:
@@ -207,8 +215,9 @@ void Filter_Process(uint8_t filter_type)
 
 		for(i=0; i < DATA_SIZE; i++)
 		{
-		/* BP_FILTER */
-		arm_fir_f32(&F[2], inputData + (4 * DATA_SIZE), outputData + (4 * DATA_SIZE), DATA_SIZE);
+			/* BP_FILTER */
+			arm_fir_f32(&F[2], inputData + (4 * DATA_SIZE), outputData + (4 * DATA_SIZE), DATA_SIZE);
+			PRINTF("HP FILTER  ");
 		 }
 		break;
 	case 5:
