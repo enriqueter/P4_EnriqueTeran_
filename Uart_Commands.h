@@ -11,12 +11,12 @@
 #include "rtos_uart.h"
 
 
-#define EnableLowPass 		1
-#define DisableLowPass 		2
-#define EnableBandPass 		3
-#define DisableBandPass 	4
-#define EnableHighPass 		5
-#define DisableHighPass 	6
+#define EnableLowPass 		0
+#define DisableLowPass 		1
+#define EnableBandPass 		2
+#define DisableBandPass 	3
+#define EnableHighPass 		4
+#define DisableHighPass 	5
 
 typedef uint8_t answerflag;
 
